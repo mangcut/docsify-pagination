@@ -23,8 +23,8 @@
   window.$docsify = {
     // ...
     pagination: {
-      previousText: 'Bài trước',
-      nextText: 'Bài tiếp',
+      previousText: 'BÀI TRƯỚC',
+      nextText: 'BÀI TIẾP',
     },
   }
   ```

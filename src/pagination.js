@@ -54,13 +54,14 @@ function pagination (vm) {
   try {
     const path = vm.route.path
     const all = toArray(query.all('.sidebar li a')).filter((element) => !matches(element, '.section-link'))
-    const active = all.find(isALinkTo(path))
-    const group = toArray((closest(active, 'ul') || {}).children)
-      .filter((element) => element.tagName.toUpperCase() === 'LI')
-    const index = group.findIndex((item) => {
-      const hyperlink = findHyperlink(item)
-      return hyperlink && isALinkTo(path, hyperlink)
-    })
+    //const active = all.find(isALinkTo(path))
+    // const group = toArray((closest(active, 'ul') || {}).children)
+    //  .filter((element) => element.tagName.toUpperCase() === 'LI')
+    // const index = group.findIndex((item) => {
+    //  const hyperlink = findHyperlink(item)
+    //  return hyperlink && isALinkTo(path, hyperlink)
+    //})
+    const index = all.findIndex(isALinkTo(path))
     return {
       prev: new Link(group[index - 1]).toJSON(),
       next: new Link(group[index + 1]).toJSON(),

@@ -48,4 +48,4 @@
 - [docsify](https://github.com/QingWei-Li/docsify/)
 
 ## License
-MIT @ [yelo](https://github.com/imyelo)
+MIT @ [yelo](https://github.com/imyelo) [mangcut](https://github.com/mangcut)

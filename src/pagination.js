@@ -18,14 +18,11 @@ const CONTAINER_CLASSNAME = 'docsify-pagination-container'
 function toArray (elements) {
   return Array.prototype.slice.call(elements)
 }
-function findHyperlink (li) {
-  return query('a', li)
-}
 function isALinkTo (path, element) {
   if (arguments.length === 1) {
     return (element) => isALinkTo(path, element)
   }
-  return decodeURIComponent(element.getAttribute('href').split('?')[0]) === decodeURIComponent(`#${path}`)
+  return decodeURIComponent(element.getAttribute('href').split('?')[0]).replace('#', '') === decodeURIComponent(path)
 }
 
 
@@ -37,14 +34,14 @@ class Link {
     if (!element) {
       return
     }
-    this.hyperlink = findHyperlink(element)
+    this.hyperlink = element
   }
   toJSON () {
     if (!this.hyperlink) {
       return
     }
     return {
-      name: this.hyperlink.innerText,
+      name: this.hyperlink.getAttribute("data-text") || this.hyperlink.innerHTML,
       href: this.hyperlink.getAttribute('href'),
     }
   }
@@ -54,17 +51,10 @@ function pagination (vm) {
   try {
     const path = vm.route.path
     const all = toArray(query.all('.sidebar li a')).filter((element) => !matches(element, '.section-link'))
-    //const active = all.find(isALinkTo(path))
-    // const group = toArray((closest(active, 'ul') || {}).children)
-    //  .filter((element) => element.tagName.toUpperCase() === 'LI')
-    // const index = group.findIndex((item) => {
-    //  const hyperlink = findHyperlink(item)
-    //  return hyperlink && isALinkTo(path, hyperlink)
-    //})
     const index = all.findIndex(isALinkTo(path))
     return {
-      prev: new Link(group[index - 1]).toJSON(),
-      next: new Link(group[index + 1]).toJSON(),
+      prev: new Link(query('a[data-prev]') || all[index - 1]).toJSON(),
+      next: new Link(query('a[data-next]') || all[index + 1]).toJSON(),
     }
   } catch (error) {
     return {}

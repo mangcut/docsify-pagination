@@ -1,5 +1,7 @@
 # docsify-pagination
-> Pagination for docsify
+> Pagination for docsify which supports:
+> - Multi-level sidebar items
+> - router mode of 'history'
 
 [![npm](https://img.shields.io/npm/v/docsify-pagination.svg?style=flat-square)](https://www.npmjs.com/package/docsify-pagination)
 [![license](https://img.shields.io/github/license/imyelo/docsify-pagination.svg?style=flat-square)](./LICENSE)
@@ -12,7 +14,7 @@
 1. insert script into document
 
   ```html
-  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify-m-pagination"></script>
   ```
 
 2. specify the label text (optional)
@@ -21,8 +23,8 @@
   window.$docsify = {
     // ...
     pagination: {
-      previousText: '上一章节',
-      nextText: '下一章节',
+      previousText: 'Bài trước',
+      nextText: 'Bài tiếp',
     },
   }
   ```

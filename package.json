@@ -1,7 +1,7 @@
 {
-  "name": "docsify-pagination",
-  "version": "2.3.5",
-  "description": "pagination plugin of docsify",
+  "name": "docsify-m-pagination",
+  "version": "2.3.6",
+  "description": "multilevel-sidebar pagination plugin of docsify",
   "main": "src",
   "scripts": {
     "start": "rollup -c -w",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/imyelo/docsify-pagination.git"
+    "url": "git+ssh://git@github.com/mangcut/docsify-pagination.git"
   },
   "keywords": [
     "docsify",
@@ -28,9 +28,10 @@
   "author": "yelo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/imyelo/docsify-pagination/issues"
+    "url": "https://github.com/mangcut/docsify-pagination/issues"
   },
-  "homepage": "https://github.com/imyelo/docsify-pagination#readme",
+  "homepage": "https://github.com/mangcut/docsify-pagination#readme",
+  "unpkg": "dist/docsify-pagination.min.js",
   "dependencies": {
     "component-closest": "^1.0.1",
     "component-matches-selector": "^0.1.6",

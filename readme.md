@@ -1,4 +1,4 @@
-# docsify-pagination
+# docsify-m-pagination
 > Pagination for docsify which supports:
 > - Multi-level sidebar items
 > - router mode of 'history'
